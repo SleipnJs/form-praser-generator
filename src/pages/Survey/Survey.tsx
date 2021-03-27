@@ -19,9 +19,9 @@ const Survey = props => {
 
   const test = () => {
     console.log(surveyData);
-    // const { fromContent };
+    const { formContent } = surveyData;
     // console.log(surveyData.formContent);
-    // console.log({ surveyData });
+    console.log({ formContent });
   };
   if (surveyData !== null)
     return (
