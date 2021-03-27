@@ -1,23 +1,25 @@
-import {TextField} from "@material-ui/core";
-import './text-field-component.css'
+import { TextField } from '@material-ui/core';
+import './text-field-component.css';
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
-const TextFieldComponent = (props) => {
+const TextFieldComponent = props => {
+  const componentProps =
+    props.component.settings != null
+      ? props.component.settings
+      : {
+          title: null,
+          description: null,
+          label: null,
+          required: false,
+        };
 
-  const componentProps = props.component.settings != null ? props.component.settings : {
-    "title": null,
-    "description": null,
-    "label": null,
-    "required": false,
-  }
-
-  const handleChange = (e) => {
+  const handleChange = e => {
     let value = e.target.value;
     props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
-  }
+  };
 
-  let _defaultValue = props.component.values != null ? props.component.values.values : ""
+  let _defaultValue = props.component.values != null ? props.component.values.values : '';
   return (
     <div className={'text-field'}>
       <div className={'text-field--component'}>
@@ -25,11 +27,12 @@ const TextFieldComponent = (props) => {
           id={componentProps.json_name}
           onChange={handleChange}
           defaultValue={_defaultValue}
-          className={'text-field--component--field'}
-          label={componentProps.label}/>
+          className={'text-field--component--field typo'}
+          label={componentProps.label}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TextFieldComponent
+export default TextFieldComponent;

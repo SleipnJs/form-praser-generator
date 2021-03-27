@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import getComponent from '../../controllers/FormParser';
-import '../form-content.css';
+import './FormContent.scss';
 import { ComponentDto } from '../FormGenerator';
 
 const FormContent = (props: any) => {
@@ -34,12 +34,22 @@ const FormContent = (props: any) => {
   }, []);
 
   return (
-    <div className={'container'}>
+    <div className={'container form'}>
       {layout.map((row: any) => {
         return (
-          <div className={'row'}>
+          <div className={'form__row'}>
             {row.map((component: ComponentDto) => {
-              return <div className={'col'}>{getComponent(props.onDataChanged, component)}</div>;
+              return (
+                <div className={'form__content'}>
+                  <div className="form__header">
+                    {/*@ts-ignore*/}
+                    <h2 className="form__heading">{component.settings.title}</h2>
+                    {/*@ts-ignore*/}
+                    <p>{component.settings.description}</p>
+                  </div>
+                  {getComponent(props.onDataChanged, component)}
+                </div>
+              );
             })}
           </div>
         );
