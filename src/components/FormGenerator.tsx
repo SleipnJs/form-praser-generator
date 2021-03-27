@@ -1,3 +1,9 @@
+import {useEffect, useState} from "react";
+import {Button, TextField} from "@material-ui/core";
+import './form-content.css'
+import GeneratorComponent from "./GeneratorComponent";
+import FormDataService from "../services/form.service";
+import React from "react";
 import { useEffect, useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import './form-content.css';
@@ -32,29 +38,26 @@ const FormGenerator = () => {
   const [formTitle, setFormTitle] = useState('undefined');
   const [formDescription, setFormDescription] = useState('undefined');
 
-  useEffect(() => {}, [layout]);
+    const createNewComponent = () => {
+        let _rowIndex = layout.length;
+        let initialComponent: ComponentDto = {
+            key: 'undefined' + _rowIndex + "-0",
+            rowIndex: _rowIndex,
+            colIndex: 0,
+            type: "none",
+            settings: {},
+            layout: {},
+            logicGroups: {},
+            values: {},
+        }
+        return initialComponent;
+    }
 
-  const createNewComponent = () => {
-    let _rowIndex = layout.length;
-    let initialComponent: ComponentDto = {
-      key: 'undefined' + _rowIndex + '-0',
-      rowIndex: _rowIndex,
-      colIndex: 0,
-      type: 'none',
-      settings: {},
-      layout: {},
-      logicGroups: {},
-      values: {},
-    };
-    return initialComponent;
-  };
-
-  const onComponentUpdated = (component: ComponentDto) => {
-    let _layout = [...layout];
-    _layout[component.rowIndex][component.colIndex] = component;
-    setLayout(_layout);
-    console.log(_layout);
-  };
+    const onComponentUpdated = (component: ComponentDto) => {
+        let _layout = [...layout];
+        _layout[component.rowIndex][component.colIndex] = component;
+        setLayout(_layout);
+    }
 
   const addColumn = (_rowIndex: number) => {
     let _layout = [...layout];

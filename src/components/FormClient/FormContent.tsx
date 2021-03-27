@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import getComponent from '../../controllers/FormParser';
 import './FormContent.scss';
 import { ComponentDto } from '../FormGenerator';
+import React from 'react';
 
 const FormContent = (props: any) => {
   const [layout, setLayout] = useState([]);

@@ -6,16 +6,13 @@ import {ComponentDto} from "./FormGenerator";
 import {Button, IconButton} from "@material-ui/core";
 import SettingsIcon from '@material-ui/icons/Settings';
 import EditComponentDialog from "./EditComponentDialog";
+import React from 'react';
 
 
 const GeneratorComponent = (props:any) => {
   const [open, setOpen] = useState(false);
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [currentComponent, setCurrentComponent] = useState(props.component)
-
-  useEffect(() => {
-    console.log(currentComponent)
-  }, [currentComponent])
 
   const handleOpenDialog = () => {
     setOpen(true);
@@ -34,9 +31,16 @@ const GeneratorComponent = (props:any) => {
   };
 
   const handleCloseEditDialog = (_component:ComponentDto) => {
+    let _settings = _component.settings;
+    for (let propName in _settings) {
+      if (_settings[propName] === null || _settings[propName] === undefined) {
+        alert(propName)
+        delete _settings[propName];
+      }
+    }
     setCurrentComponent({
       ...currentComponent,
-      settings: _component.settings
+      settings: _settings
     });
     setOpenEditDialog(false)
     props.onComponentUpdated(_component);
@@ -52,9 +56,6 @@ const GeneratorComponent = (props:any) => {
   }
 
   const buildComponentBox = () => {
-    let hasTitle = currentComponent.title != null && currentComponent.title != "";
-    let hasDescription = currentComponent.description != null && currentComponent.description != "";
-
     return (
         <div className={'component-holder'}>
           <div className={'component-holder--settings'}>

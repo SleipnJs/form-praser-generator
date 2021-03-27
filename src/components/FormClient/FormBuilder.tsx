@@ -2,8 +2,9 @@ import FormContent from './FormContent';
 import { useEffect, useState } from 'react';
 import FormDataService from '../../services/form.service';
 import './FormContent.scss';
+import React from 'react';
 
-function FormBuilder(props: any) {
+const FormBuilder = (props: any) => {
   const [formContent, setFormContent] = useState(null);
   const [formData, setFormData] = useState({});
 
@@ -12,7 +13,7 @@ function FormBuilder(props: any) {
       setFormContent(props.formContent);
       if (props.formContent.hasOwnProperty('values')) {
         let keys = Object.keys(props.formContent.values);
-        let _formData = { ...formData };
+        let _formData = {...formData};
         keys.forEach((key: any) => {
           // @ts-ignore
           _formData[key] = props.formContent.values[key].values;
@@ -40,14 +41,17 @@ function FormBuilder(props: any) {
     return <p>Loading form...</p>;
   } else {
     return (
-      <form>
-        <FormContent onDataChanged={onDataChanged} formContent={formContent} />
-        <button className="form__button" onClick={() => sendData()}>
-          Wyślij
-        </button>
-      </form>
+        <form>
+          <FormContent onDataChanged={onDataChanged} formContent={formContent}/>
+          <button className="form__button" onClick={(e) => {
+            e.preventDefault();
+            sendData()
+          }}>
+            Wyślij
+          </button>
+        </form>
     );
   }
 }
-
+//@ts-ignore
 export default FormBuilder;

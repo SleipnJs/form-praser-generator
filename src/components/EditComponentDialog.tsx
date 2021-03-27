@@ -2,6 +2,7 @@ import {
     Dialog,
     DialogTitle,
 } from "@material-ui/core";
+import React from "react";
 
 import FormBuilder from "./FormClient/FormBuilder";
 

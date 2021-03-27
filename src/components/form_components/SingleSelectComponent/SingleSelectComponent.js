@@ -10,27 +10,28 @@ import {useState} from "react";
 const SingleSelectComponent = (props) => {
   const [selectedOption, setSelectedOption] = useState();
 
-  const [componentProps, setComponentProps] = useState(props.component.settings != null ? props.component.settings :{
-    "json_name": null,
-    "title": null,
-    "description": null,
-    "label": null,
-    "required": false,
-    "hasOptionOther": false,
-    "options": [],
-  })
+  const componentProps =
+    props.component.settings != null
+      ? props.component.settings
+      : {
+        json_name: null,
+        title: null,
+        description: null,
+        label: null,
+        required: false,
+        hasOptionOther: false,
+        options: [],
+      };
 
   const handleChange = (event) => {
     let value = event.target.value;
     selectedOption(value);
-    props.onDataChanged(props.component.key, value);
+    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
   };
 
   return (
     <div className={'single-select'}>
       <div className={'single-select--component'}>
-        <h2>{componentProps.title}</h2>
-        <p>{componentProps.description}</p>
         <InputLabel id="demo-simple-select-label">{componentProps.label}</InputLabel>
         <Select
           style={{width: "100%"}}
@@ -38,11 +39,14 @@ const SingleSelectComponent = (props) => {
           onChange={handleChange}
           id="single-select"
         >
-          {componentProps.options.map((option, index) =>
+          {componentProps.options != null
+            ? componentProps.options.map((option, index) =>
             <div key={index}>
-              <MenuItem style={{width: "100%"}} value={index}>{option}</MenuItem>
+              <MenuItem style={{width: "100%"}} value={index}>{option.label}</MenuItem>
             </div>
-          )}
+          ): <div key={999}>
+              <MenuItem style={{width: "100%"}}>Wybierz opcje</MenuItem>
+            </div>}
         </Select>
       </div>
     </div>

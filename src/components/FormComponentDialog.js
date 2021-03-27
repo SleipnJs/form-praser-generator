@@ -5,7 +5,7 @@ const FormComponentDialog = (props) => {
   const {onClose, selectedValue, open} = props;
 
   const handleClose = () => {
-    onClose(selectedValue);
+    onClose('none');
   };
 
   const handleListItemClick = (value) => {
@@ -50,24 +50,6 @@ const FormComponentDialog = (props) => {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="single_select"/>
-        </ListItem>
-
-        <ListItem autoFocus button onClick={() => handleListItemClick('multi_select')}>
-          <ListItemAvatar>
-            <Avatar>
-              +
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="multi_select"/>
-        </ListItem>
-
-        <ListItem autoFocus button onClick={() => handleListItemClick('logic_group')}>
-          <ListItemAvatar>
-            <Avatar>
-              +
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="logic_group (NIE UŻYWAĆ)"/>
         </ListItem>
       </List>
     </Dialog>

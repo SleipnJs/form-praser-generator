@@ -2,9 +2,10 @@ import TextFieldComponent from "../components/form_components/TextFieldComponent
 import LogicGroupComponent from "../components/form_components/LogicGroupComponent/LogicGroupComponent";
 import SingleSelectComponent from "../components/form_components/SingleSelectComponent/SingleSelectComponent";
 import RadioGroupComponent from "../components/form_components/RadioGroupComponent/RadioGroupComponent";
-import MultiSelectComponent from "../components/form_components/MultiSelectComponent/MultiSelectComponent";
 import CheckboxGroupComponent from "../components/form_components/CheckboxGroupComponent/CheckboxGroupComponent";
 import {ComponentDto} from "../components/FormGenerator";
+import SwitchComponent from "../components/form_components/SwitchComponent/SwitchComponent";
+import React from "react";
 
 const getComponent = (onDataChanged: any, component: ComponentDto) => {
     switch (component.type) {
@@ -15,11 +16,6 @@ const getComponent = (onDataChanged: any, component: ComponentDto) => {
             />
         case "single_select":
             return <SingleSelectComponent
-                component={component}
-                onDataChanged={onDataChanged}
-            />
-        case "multi_select":
-            return <MultiSelectComponent
                 component={component}
                 onDataChanged={onDataChanged}
             />
@@ -35,6 +31,12 @@ const getComponent = (onDataChanged: any, component: ComponentDto) => {
             />
         case "logic_group":
             return <LogicGroupComponent
+                component={component}
+                formContent={component.logicGroups}
+                onDataChanged={onDataChanged}
+            />
+        case "switch":
+            return <SwitchComponent
                 component={component}
                 formContent={component.logicGroups}
                 onDataChanged={onDataChanged}

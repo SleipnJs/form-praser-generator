@@ -4,7 +4,7 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { history } from './helpers/history';
 import MainPage from './pages/MainPage/MainPage';
 import Survey from './pages/Survey/Survey';
-import { Fragment } from 'react';
+import React from 'react';
 
 function App() {
   return (

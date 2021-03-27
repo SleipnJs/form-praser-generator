@@ -5,27 +5,33 @@ import {useState} from "react";
 
 const CheckboxGroupComponent = (props) => {
 
-  const componentProps = props.component.settings != null ? props.component.settings :{
-    "json_name": null,
-    "title": null,
-    "description": null,
-    "label": null,
-    "required": false,
-    "hasOptionOther": false,
-    "options": [],
+  const componentProps = props.component.settings != null
+    ? props.component.settings
+    : {
+      json_name: null,
+      title: null,
+      description: null,
+      label: null,
+      required: false,
+      hasOptionOther: false,
+      options: [],
+    };
+
+  const handleChange = (e) => {
+    let value = e.target.value;
+    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
   }
 
   return (
     <div className={'checkbox-group'}>
       <div className={'checkbox-group--component'}>
-        <h2>{componentProps.title}</h2>
-        <p>{componentProps.description}</p>
         <span><small><b>{componentProps.label}</b></small></span>
-          {componentProps.options.map((option, index) =>
+          {componentProps.options != null
+            ?  componentProps.options.map((option, index) =>
             <div key={index}>
-              <FormControlLabel value={option} control={<Checkbox name={componentProps.json_name}/>} label={option}/>
+              <FormControlLabel value={option.label} control={<Checkbox name={componentProps.json_name}/>} label={option.label}/>
             </div>
-          )}
+          ):  'Wybierz pola'}
       </div>
     </div>
   )
