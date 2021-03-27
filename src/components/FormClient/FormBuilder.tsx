@@ -1,5 +1,4 @@
 import FormContent from './FormContent';
-import { Button } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import FormDataService from '../../services/form.service';
 import './FormContent.scss';
@@ -43,9 +42,9 @@ function FormBuilder(props: any) {
     return (
       <form>
         <FormContent onDataChanged={onDataChanged} formContent={formContent} />
-        <Button className="form__button" onClick={() => sendData()}>
+        <button className="form__button" onClick={() => sendData()}>
           Wyślij
-        </Button>
+        </button>
       </form>
     );
   }
