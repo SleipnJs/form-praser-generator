@@ -10,7 +10,7 @@ import FormDataService from '../../services/form.service'
 
 const Survey = props => {
   const [surveyData, updateData] = useState({
-    "formContent": undefined
+    formContent: undefined,
   });
 
   const formId = props.match.params.id;
@@ -18,8 +18,8 @@ const Survey = props => {
   useEffect(() => {
     FormDataService.getForm(1,1).then(response => {
       let data = response.data;
-      data.formContent = JSON.parse(data.formContent)
-      updateData(data)
+      data.formContent = JSON.parse(data.formContent);
+      updateData(data);
     });
   }, []);
 
@@ -38,7 +38,7 @@ const Survey = props => {
         />
       </div>
     );
-  else return <p>CO</p>;
+  } else return <p>CO</p>;
 };
 
 export default Survey;

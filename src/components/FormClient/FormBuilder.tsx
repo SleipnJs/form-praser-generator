@@ -2,12 +2,11 @@ import FormContent from './FormContent';
 import { Button } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import FormDataService from '../../services/form.service';
+import './FormContent.scss';
 
 function FormBuilder(props: any) {
   const [formContent, setFormContent] = useState(null);
   const [formData, setFormData] = useState({});
-
-  console.log(props.formContent);
 
   useEffect(() => {
     if (props.formContent != null) {
@@ -44,7 +43,9 @@ function FormBuilder(props: any) {
     return (
       <form>
         <FormContent onDataChanged={onDataChanged} formContent={formContent} />
-        <Button onClick={() => sendData()}>SEND DATA</Button>
+        <Button className="form__button" onClick={() => sendData()}>
+          Wyślij
+        </Button>
       </form>
     );
   }
