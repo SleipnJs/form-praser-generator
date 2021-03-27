@@ -7,11 +7,9 @@ import FormBuilder from "./FormClient/FormBuilder";
 
 const EditComponentDialog = (props: any) => {
     let component = props.currentComponent;
-
     const {open} = props;
 
     const handleClose = (result: any) => {
-        console.log(result)
         if (result != null && result.length !== 0) {
             let keys = Object.keys(result)
             keys.forEach((item) => {

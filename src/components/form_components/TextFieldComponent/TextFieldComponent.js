@@ -5,16 +5,16 @@ import {useEffect, useState} from "react";
 
 const TextFieldComponent = (props) => {
 
-  const [componentProps, setComponentProps] = useState(props.component.settings != null ? props.component.settings : {
+  const componentProps = props.component.settings != null ? props.component.settings : {
     "title": null,
     "description": null,
     "label": null,
     "required": false,
-  })
+  }
 
   const handleChange = (e) => {
     let value = e.target.value;
-    props.onDataChanged(props.component.key, value);
+    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
   }
 
   let _defaultValue = props.component.values != null ? props.component.values.values : ""
