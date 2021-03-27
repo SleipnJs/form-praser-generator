@@ -1,0 +1,44 @@
+.footer {
+  margin-top: 12rem;
+  background-color: #212227;
+  padding: 3rem 8rem;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__authors {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__author {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      color: rgb(192, 192, 192);
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+
+    path {
+      transition: all 0.2s;
+    }
+
+    &:hover path {
+      fill: rgb(192, 192, 192);
+    }
+  }
+}
