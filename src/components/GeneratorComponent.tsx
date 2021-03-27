@@ -13,6 +13,10 @@ const GeneratorComponent = (props:any) => {
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [currentComponent, setCurrentComponent] = useState(props.component)
 
+  useEffect(() => {
+    console.log(currentComponent)
+  }, [currentComponent])
+
   const handleOpenDialog = () => {
     setOpen(true);
   };
@@ -29,10 +33,13 @@ const GeneratorComponent = (props:any) => {
     setOpenEditDialog(true);
   };
 
-  const handleCloseEditDialog = (component:ComponentDto) => {
-    setCurrentComponent(component)
+  const handleCloseEditDialog = (_component:ComponentDto) => {
+    setCurrentComponent({
+      ...currentComponent,
+      settings: _component.settings
+    });
     setOpenEditDialog(false)
-    props.onComponentUpdated(component);
+    props.onComponentUpdated(_component);
   };
 
   const buildSelectComponentBox = () => {

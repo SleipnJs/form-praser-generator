@@ -1,19 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-import './App.scss';
+import './App.css';
+import FormBuilder from "./components/FormClient/FormBuilder";
+import FormGenerator from "./components/FormGenerator";
+import {Router, Switch, Route} from "react-router-dom";
+import {history} from "./helpers/history";
 import MainPage from './pages/MainPage/MainPage';
 import Survey from './pages/Survey/Survey';
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/survey/:id" component={Survey} />
-      </div>
-    </Router>
-  );
+
+
+    return (
+        <Router history={history}>
+            <div className="App">
+                <div>
+                    <Switch>
+                        <Route exact path="/createForm" component={FormGenerator}/>
+                        <Route exact path="/" component={MainPage} />
+                        <Route exact path="/survey/:id" component={Survey} />
+                    </Switch>
+                </div>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

@@ -4,7 +4,7 @@ import './radio-group-component.css'
 import {useState} from "react";
 
 const RadioGroupComponent = (props) => {
-  const [componentProps, setComponentProps] = useState(props.component.settings != null ? props.component.settings :{
+  const componentProps = props.component.settings != null ? props.component.settings :{
     "json_name": null,
     "title": null,
     "description": null,
@@ -12,18 +12,16 @@ const RadioGroupComponent = (props) => {
     "required": false,
     "hasOptionOther": false,
     "options": [],
-  })
+  }
 
   return (
     <div className={'radio-group'}>
       <div className={'radio-group--component'}>
-        <h2>{componentProps.title}</h2>
-        <p>{componentProps.description}</p>
         <span><small><b>{componentProps.label}</b></small></span>
         <RadioGroup>
           {componentProps.options != null ? componentProps.options.map((option, index) =>
             <div key={index}>
-              <FormControlLabel value={option} control={<Radio/>} label={option}/>
+              <FormControlLabel value={option.label} control={<Radio/>} label={option.label}/>
             </div>
           ): "Wybierz pola"}
         </RadioGroup>
