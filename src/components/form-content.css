@@ -1,35 +1,36 @@
 .container {
-    width: 1500px;
-    margin: 0 auto;
+  max-width: 144rem;
+  margin: 0 auto;
 }
 
 .row {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .col {
-    flex: 1;
-    text-align: left;
+  flex: 1;
+  text-align: left;
 }
 
 .select-item-box {
-    border: dashed 2px #ddd;
-    cursor: pointer;
-    border-radius: 15px;
-    text-align: center;
-    color: #ccc;
-    padding: 40px;
+  margin-top: 3rem;
+  border: 1px solid #e7e7e7;
+  cursor: pointer;
+  border-radius: 15px;
+  text-align: center;
+  color: #ccc;
+  padding: 40px;
 }
 
 .component-holder {
-    position: relative;
+  position: relative;
 }
 
 .component-holder--settings {
-    position: absolute;
-    font-size: 12px;
-    height: 20px;
-    top: 0;
-    right: 0;
+  position: absolute;
+  font-size: 12px;
+  height: 20px;
+  top: 0;
+  right: 0;
 }
