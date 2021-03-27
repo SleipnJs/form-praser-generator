@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import FormBuilder from "./components/FormClient/FormBuilder";
 import FormGenerator from "./components/FormGenerator";
 import {Router, Switch, Route} from "react-router-dom";
