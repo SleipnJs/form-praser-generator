@@ -1,0 +1,24 @@
+.MuiTypography-h6 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.MuiList-root > div {
+  padding: 1rem 8rem;
+
+  .MuiAvatar-colorDefault {
+    color: #eb5757;
+    font-size: 2.2rem;
+    font-weight: 300;
+    background: none;
+    width: auto;
+    height: auto;
+  }
+
+  span {
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+}

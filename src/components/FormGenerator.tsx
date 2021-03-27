@@ -1,10 +1,13 @@
-import {useEffect, useState} from "react";
-import {Button, TextField} from "@material-ui/core";
-import './form-content.css'
-import GeneratorComponent from "./GeneratorComponent";
-import FormDataService from "../services/form.service";
-import React from "react";
+import { useEffect, useState } from 'react';
+import { Button, TextField } from '@material-ui/core';
+import './form-content.css';
+import GeneratorComponent from './GeneratorComponent';
+import FormDataService from '../services/form.service';
+import React from 'react';
 import './FormGenerator.scss';
+
+import blob from '../assets/images/blob.svg';
+import leaf from '../assets/images/leaf.svg';
 
 export interface ComponentDto {
   key: string;
@@ -32,26 +35,26 @@ const FormGenerator = () => {
   const [formTitle, setFormTitle] = useState('undefined');
   const [formDescription, setFormDescription] = useState('undefined');
 
-    const createNewComponent = () => {
-        let _rowIndex = layout.length;
-        let initialComponent: ComponentDto = {
-            key: 'undefined' + _rowIndex + "-0",
-            rowIndex: _rowIndex,
-            colIndex: 0,
-            type: "none",
-            settings: {},
-            layout: {},
-            logicGroups: {},
-            values: {},
-        }
-        return initialComponent;
-    }
+  const createNewComponent = () => {
+    let _rowIndex = layout.length;
+    let initialComponent: ComponentDto = {
+      key: 'undefined' + _rowIndex + '-0',
+      rowIndex: _rowIndex,
+      colIndex: 0,
+      type: 'none',
+      settings: {},
+      layout: {},
+      logicGroups: {},
+      values: {},
+    };
+    return initialComponent;
+  };
 
-    const onComponentUpdated = (component: ComponentDto) => {
-        let _layout = [...layout];
-        _layout[component.rowIndex][component.colIndex] = component;
-        setLayout(_layout);
-    }
+  const onComponentUpdated = (component: ComponentDto) => {
+    let _layout = [...layout];
+    _layout[component.rowIndex][component.colIndex] = component;
+    setLayout(_layout);
+  };
 
   const addColumn = (_rowIndex: number) => {
     let _layout = [...layout];
@@ -106,6 +109,8 @@ const FormGenerator = () => {
 
   return (
     <div className={'container generator'}>
+      <img src={blob} className="blob" />
+      <img src={leaf} className="leaf" />
       <h2 className="generator__heading">
         Stwórz własną <span>ankietę</span> od zaraz
       </h2>
@@ -126,9 +131,9 @@ const FormGenerator = () => {
                 </div>
               );
             })}
-            <Button variant={'contained'} onClick={() => addColumn(_rowIndex)}>
+            <button className="generator__add" onClick={() => addColumn(_rowIndex)}>
               +
-            </Button>
+            </button>
           </div>
         );
       })}
@@ -142,6 +147,6 @@ const FormGenerator = () => {
       </div>
     </div>
   );
-}
+};
 
 export default FormGenerator;
