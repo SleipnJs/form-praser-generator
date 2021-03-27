@@ -4,18 +4,20 @@
   gap: 2.5rem;
 
   &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // margin-bottom: 2rem;
 
     p {
       font-size: 1.1rem;
       font-weight: 600;
+      margin-bottom: 2rem;
     }
   }
 
   &__heading {
+    margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 600;
   }
@@ -37,11 +39,12 @@
     text-align: left;
   }
 
-  .typo span {
+  .test span {
     font-size: 1.4rem;
   }
 
   &__button {
+    display: none;
     margin-top: 4rem;
     position: relative;
     left: 50%;
@@ -61,23 +64,27 @@
   }
 }
 
-.select-item-box {
-  border: dashed 2px #ddd;
-  cursor: pointer;
-  border-radius: 15px;
-  text-align: center;
-  color: #ccc;
-  padding: 40px;
+.u-mtop {
+  margin-top: 6rem;
 }
 
-.component-holder {
-  position: relative;
-}
+// .select-item-box {
+//   border: dashed 2px #ddd;
+//   cursor: pointer;
+//   border-radius: 15px;
+//   text-align: center;
+//   color: #ccc;
+//   padding: 40px;
+// }
 
-.component-holder--settings {
-  position: absolute;
-  font-size: 12px;
-  height: 20px;
-  top: 0;
-  right: 0;
-}
+// .component-holder {
+//   position: relative;
+// }
+
+// .component-holder--settings {
+//   position: absolute;
+//   font-size: 12px;
+//   height: 20px;
+//   top: 0;
+//   right: 0;
+// }

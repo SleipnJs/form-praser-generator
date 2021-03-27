@@ -8,7 +8,7 @@ import commentsImg from '../../assets/images/comments.svg';
 
 const Popular = props => {
   return (
-    <section className="popular">
+    <section className="popular" id="popular">
       <h2 className="subheading">Najpopularniejsze tematy</h2>
       <div className="popular__container">
         <div className="popular__item">

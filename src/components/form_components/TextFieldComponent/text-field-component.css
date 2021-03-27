@@ -1,0 +1,12 @@
+.MuiInputBase-root {
+  font-size: 1.6rem !important;
+  color: #000 !important;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 1px solid red #e7e7e7;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid #eb5757 !important;
+}

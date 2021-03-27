@@ -1,6 +1,7 @@
 import React from 'react';
 
 import surveyImg from '../../assets/images/survey.svg';
+import { Link } from 'react-router-dom';
 
 import './Hero.scss';
 
@@ -13,8 +14,12 @@ const Hero = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacinia pulvinar porttitor vitae sed. Magna rutrum enim ipsum massa.
         </h3>
         <div className="hero__buttons">
-          <button className="hero__btn hero__btn--red">Utwórz ankiete</button>
-          <button className="hero__btn hero__btn--black">Zobacz popularne</button>
+          <Link to="/createForm" className="hero__btn hero__btn--red">
+            Utwórz ankiete
+          </Link>
+          <a href="#popular" className="hero__btn hero__btn--black">
+            Zobacz popularne
+          </a>
         </div>
       </div>
       <img src={surveyImg}></img>

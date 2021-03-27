@@ -1,28 +1,23 @@
-import './App.scss';
-import FormBuilder from "./components/FormClient/FormBuilder";
-import FormGenerator from "./components/FormGenerator";
-import {Router, Switch, Route} from "react-router-dom";
-import {history} from "./helpers/history";
+import FormBuilder from './components/FormClient/FormBuilder';
+import FormGenerator from './components/FormGenerator';
+import { Router, Switch, Route } from 'react-router-dom';
+import { history } from './helpers/history';
 import MainPage from './pages/MainPage/MainPage';
 import Survey from './pages/Survey/Survey';
 import React from 'react';
 
 function App() {
-
-
-    return (
-        <Router history={history}>
-            <div className="App">
-                <div>
-                    <Switch>
-                        <Route exact path="/createForm" component={FormGenerator}/>
-                        <Route exact path="/" component={MainPage} />
-                        <Route exact path="/survey/:id" component={Survey} />
-                    </Switch>
-                </div>
-            </div>
-        </Router>
-    );
+  return (
+    <Router history={history}>
+      <Fragment>
+        <Switch>
+          <Route exact path="/createForm" component={FormGenerator} />
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/survey/:id" component={Survey} />
+        </Switch>
+      </Fragment>
+    </Router>
+  );
 }
 
 export default App;

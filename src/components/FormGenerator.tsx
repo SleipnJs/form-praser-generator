@@ -4,32 +4,40 @@ import './form-content.css'
 import GeneratorComponent from "./GeneratorComponent";
 import FormDataService from "../services/form.service";
 import React from "react";
+import { useEffect, useState } from 'react';
+import { Button, TextField } from '@material-ui/core';
+import './form-content.css';
+import GeneratorComponent from './GeneratorComponent';
+import FormDataService from '../services/form.service';
+
+import './FormGenerator.scss';
+import React from "react";
 
 export interface ComponentDto {
-    key: string;
-    type: string;
-    rowIndex: number;
-    colIndex: number;
-    settings: {};
-    layout: {};
-    logicGroups: {};
-    values: {};
+  key: string;
+  type: string;
+  rowIndex: number;
+  colIndex: number;
+  settings: {};
+  layout: {};
+  logicGroups: {};
+  values: {};
 }
 
 const FormGenerator = () => {
-    let zeroComponent: ComponentDto = {
-        key: 'undefined0-0',
-        rowIndex: 0,
-        colIndex: 0,
-        type: "none",
-        settings: {},
-        layout: {},
-        logicGroups: {},
-        values: {},
-    }
-    const [layout, setLayout] = useState([[zeroComponent]]);
-    const [formTitle, setFormTitle] = useState("undefined");
-    const [formDescription, setFormDescription] = useState("undefined");
+  let zeroComponent: ComponentDto = {
+    key: 'undefined0-0',
+    rowIndex: 0,
+    colIndex: 0,
+    type: 'none',
+    settings: {},
+    layout: {},
+    logicGroups: {},
+    values: {},
+  };
+  const [layout, setLayout] = useState([[zeroComponent]]);
+  const [formTitle, setFormTitle] = useState('undefined');
+  const [formDescription, setFormDescription] = useState('undefined');
 
     const createNewComponent = () => {
         let _rowIndex = layout.length;
@@ -52,58 +60,96 @@ const FormGenerator = () => {
         setLayout(_layout);
     }
 
-    const addColumn = (_rowIndex: number) => {
-        let _layout = [...layout];
-        _layout[_rowIndex].push(createNewComponent())
-        setLayout(_layout)
-    }
+  const addColumn = (_rowIndex: number) => {
+    let _layout = [...layout];
+    _layout[_rowIndex].push(createNewComponent());
+    setLayout(_layout);
+  };
 
-    const onFormTitleChanged = (e:any) => {
-        let value = e.target.value;
-        setFormTitle(value)
-    }
+  const onFormTitleChanged = (e: any) => {
+    let value = e.target.value;
+    setFormTitle(value);
+  };
 
-    const onFormDescriptionChanged = (e:any) => {
-        let value = e.target.value;
-        setFormDescription(value)
-    }
+  const onFormDescriptionChanged = (e: any) => {
+    let value = e.target.value;
+    setFormDescription(value);
+  };
 
-    const saveForm = () => {
-        alert()
-        let _result = {};
-        // @ts-ignore
-        _result['components'] = {};
-        // @ts-ignore
-        _result['componentsSettings'] = {};
-        // @ts-ignore
-        _result['layout'] = [];
+  const saveForm = () => {
+    let _result = {};
+    // @ts-ignore
+    _result['components'] = {};
+    // @ts-ignore
+    _result['componentsSettings'] = {};
+    // @ts-ignore
+    _result['layout'] = [];
 
-        layout.forEach((row, index) => {
-            // @ts-ignore
-            _result['layout'][index] = [];
-            row.forEach((item, indexCol) => {
-                // @ts-ignore
-                _result['components'][item.key] = item.type;
-                // @ts-ignore
-                _result['componentsSettings'][item.key] = item.settings;
-                // @ts-ignore
-                _result['layout'][index][indexCol] = {[item.key] : item.layout};
-            })
-        })
-        let _resultFull = {}
+    layout.forEach((row, index) => {
+      // @ts-ignore
+      _result['layout'][index] = [];
+      row.forEach((item, indexCol) => {
         // @ts-ignore
-        _resultFull['stage_number'] = 1;
+        _result['components'][item.key] = item.type;
         // @ts-ignore
-        _resultFull['form_title'] = formTitle;
+        _result['componentsSettings'][item.key] = item.settings;
         // @ts-ignore
-        _resultFull['form_description'] = formDescription;
-        // @ts-ignore
-        _resultFull['form_content'] = _result;
+        _result['layout'][index][indexCol] = { [item.key]: item.layout };
+      });
+    });
+    let _resultFull = {};
+    // @ts-ignore
+    _resultFull['stage_number'] = 1;
+    // @ts-ignore
+    _resultFull['form_title'] = formTitle;
+    // @ts-ignore
+    _resultFull['form_description'] = formDescription;
+    // @ts-ignore
+    _resultFull['form_content'] = _result;
 
-        console.log(_resultFull);
-        FormDataService.create(_resultFull).then(r => alert())
-    }
+    console.log(_resultFull);
+    FormDataService.create(_resultFull).then(r => alert());
+  };
 
+  return (
+    <div className={'container generator'}>
+      <h2 className="generator__heading">
+        Stwórz własną <span>ankietę</span> od zaraz
+      </h2>
+      <div className="generator__settings">
+        <TextField label={'Tytuł formularza'} onChange={onFormTitleChanged} />
+        <TextField label={'Opis formularza'} onChange={onFormDescriptionChanged} multiline rows={4} />
+      </div>
+      {layout.map((row, _rowIndex) => {
+        return (
+          <div className={' row'}>
+            {row.map((col, _colIndex) => {
+              return (
+                <div className={'col'} key={_colIndex}>
+                  <GeneratorComponent
+                    component={layout[_rowIndex][_colIndex]}
+                    onComponentUpdated={(component: ComponentDto) => onComponentUpdated(component)}
+                  />
+                </div>
+              );
+            })}
+            <Button variant={'contained'} onClick={() => addColumn(_rowIndex)}>
+              +
+            </Button>
+          </div>
+        );
+      })}
+      <div className="generator__buttons">
+        <button className="generator__btn generator__btn--red" onClick={() => setLayout(layout => [...layout, [createNewComponent()]])}>
+          + Dodaj komponent
+        </button>
+        <button className="generator__btn generator__btn--black" onClick={() => saveForm()}>
+          Save
+        </button>
+      </div>
+    </div>
+  );
+};
     return (
         <div className={'container'}>
             <div>
@@ -141,4 +187,4 @@ const FormGenerator = () => {
     )
 }
 
-export default FormGenerator
+export default FormGenerator;
