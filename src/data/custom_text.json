@@ -1,0 +1,52 @@
+{
+  "components": {
+    "json_key": "text_field",
+    "title": "text_field",
+    "description": "text_field",
+    "label": "text_field",
+    "required": "switch"
+  },
+  "componentsSettings": {
+    "json_key": {
+      "title": "Klucz json",
+      "description": "Wymagane do zapisania formularza",
+      "label": "json_key",
+      "required": false
+    },
+    "title": {"title": "Tytuł", "description": "Tytuł komponentu", "label": "Tytuł", "required": false},
+    "description": {"title": "Opis", "description": "Opis komponentu", "label": "Opis", "required": false},
+    "label": {"title": "Label", "description": "Label komponentu", "label": "Label", "required": false},
+    "required": {
+      "title": "isRequired",
+      "description": "Czy uzupełnienie komponentu jest obowiązkowe",
+      "label": "Label"
+    }
+  },
+  "layout": [
+    [
+      {
+        "json_key": {"flex": 1}
+      }
+    ],
+    [
+      {
+        "title": {"flex": 1}
+      }
+    ],
+    [
+      {
+        "description": {"flex": 1}
+      }
+    ],
+    [
+      {
+        "label": {"flex": 1}
+      }
+    ],
+    [
+      {
+        "required": {"flex": 1}
+      }
+    ]
+  ]
+}
