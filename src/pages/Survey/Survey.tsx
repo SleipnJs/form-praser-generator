@@ -28,7 +28,7 @@ const Survey = props => {
     FormResponseDataService.send(formId, data).then(r => alert())
   }
 
-  if (surveyData.formContent !== undefined)
+  if (surveyData.formContent !== undefined) {
     return (
       <div>
         {/* @ts-ignore */}
@@ -38,7 +38,9 @@ const Survey = props => {
         />
       </div>
     );
-  } else return <p>CO</p>;
+  } else {
+    return <p>CO</p>;
+  }
 };
 
 export default Survey;
