@@ -11,6 +11,7 @@ import GeneratorComponent from './GeneratorComponent';
 import FormDataService from '../services/form.service';
 
 import './FormGenerator.scss';
+import React from "react";
 
 export interface ComponentDto {
   key: string;
@@ -149,5 +150,41 @@ const FormGenerator = () => {
     </div>
   );
 };
+    return (
+        <div className={'container'}>
+            <div>
+                <TextField label={"Tytuł formularza"} onChange={onFormTitleChanged}/><br/>
+                <TextField label={"Opis formularza"} rows={4} multiline onChange={onFormDescriptionChanged}/>
+            </div>
+            {layout.map((row, _rowIndex) => {
+                return (
+                    <div className={'row'}>
+                        {row.map((col, _colIndex) => {
+                            return (
+                                <div className={'col'} key={_colIndex}>
+                                    <GeneratorComponent
+                                        component={layout[_rowIndex][_colIndex]}
+                                        onComponentUpdated={(component: ComponentDto) => onComponentUpdated(component)}
+                                    />
+                                </div>
+                            )
+                        })}
+                        <Button variant={'contained'} onClick={() => addColumn(_rowIndex)}>
+                            +
+
+                        </Button>
+                    </div>
+                )
+            })
+            }
+            <Button variant={'contained'} onClick={() => setLayout(layout => [...layout, [createNewComponent()]])}>
+                +
+            </Button>
+            <Button variant={'contained'} onClick={() => saveForm()}>
+                Save
+            </Button>
+        </div>
+    )
+}
 
 export default FormGenerator;
