@@ -1,13 +1,18 @@
-import './App.css';
-import FormBuilder from "./components/FormClient/FormBuilder";
-import FormGenerator from "./components/FormGenerator";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import './App.scss';
+import MainPage from './pages/MainPage/MainPage';
+import Survey from './pages/Survey/Survey';
 
 function App() {
-
   return (
-    <div className="App">
-      <FormGenerator/>
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/survey/:id" component={Survey} />
+      </div>
+    </Router>
   );
 }
 
