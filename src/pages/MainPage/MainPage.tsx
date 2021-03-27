@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import './MainPage.scss';
+import FormDataService from '../../services/form.service'
 
 import axios from 'axios';
 
@@ -18,7 +19,7 @@ const MainPage = () => {
   const [popularPostsState, updatePopular] = useState({ popular: [] });
 
   useEffect(() => {
-    axios.get('http://192.168.0.100:8080/data/forms?id=1&stage=1').then(response => {
+      FormDataService.getForm(1,1).then(response => {
       updatePopular({ popular: response.data });
     });
   }, []);

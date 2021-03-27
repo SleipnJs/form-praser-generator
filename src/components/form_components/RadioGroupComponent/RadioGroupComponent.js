@@ -17,6 +17,11 @@ const RadioGroupComponent = props => {
           options: [],
         };
 
+  const handleChange = (e) => {
+    let value = e.target.value;
+    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
+  }
+
   return (
     <div className={'radio-group'}>
       <div className={'radio-group--component'}>
