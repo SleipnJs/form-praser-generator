@@ -43,6 +43,12 @@ const FormContent = (props:any) => {
             {row.map((component:ComponentDto) => {
               return (
                 <div className={'col'}>
+                  <div>
+                    {/*@ts-ignore*/}
+                    <h2>{component.settings.title}</h2>
+                    {/*@ts-ignore*/}
+                    <p>{component.settings.description}</p>
+                  </div>
                   {getComponent(props.onDataChanged, component)}
                 </div>
               )

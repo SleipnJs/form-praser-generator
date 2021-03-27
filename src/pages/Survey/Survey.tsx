@@ -7,13 +7,17 @@ import axios from 'axios';
 import FormBuilder from '../../components/FormClient/FormBuilder';
 
 const Survey = props => {
-  const [surveyData, updateData] = useState(null);
+  const [surveyData, updateData] = useState({
+    "formContent": undefined
+  });
 
   console.log(props.match.params.id);
 
   useEffect(() => {
     axios.get('http://192.168.0.100:8080/data/forms?id=1&stage=1').then(response => {
-      updateData(response.data);
+      let data = response.data;
+      data.formContent = JSON.parse(data.formContent)
+      updateData(data)
     });
   }, []);
 
@@ -23,7 +27,7 @@ const Survey = props => {
     // console.log(surveyData.formContent);
     console.log({ formContent });
   };
-  if (surveyData !== null)
+  if (surveyData.formContent !== undefined)
     return (
       <div>
         <button onClick={test}>test</button>
