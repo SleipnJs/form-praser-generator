@@ -8,7 +8,7 @@ import FormBuilder from '../../components/FormClient/FormBuilder';
 
 const Survey = props => {
   const [surveyData, updateData] = useState(null);
-
+  console.log('Survey is build');
   console.log(props.match.params.id);
 
   useEffect(() => {
@@ -19,19 +19,22 @@ const Survey = props => {
 
   const test = () => {
     console.log(surveyData);
-    const { formContent } = surveyData;
-    // console.log(surveyData.formContent);
-    console.log({ formContent });
+    //   const { formContent } = surveyData;
+    //   // console.log(surveyData.formContent);
+    //   console.log({ formContent });
   };
-  if (surveyData !== null)
+
+  if (surveyData) {
+    console.log('IF statement');
+
     return (
       <div>
         <button onClick={test}>test</button>
         {/* @ts-ignore */}
-        <FormBuilder formContent={surveyData.formContent} />
+        <FormBuilder formContent={surveyData?.formContent} />
       </div>
     );
-  else return <p>CO</p>;
+  } else return <p>CO</p>;
 };
 
 export default Survey;

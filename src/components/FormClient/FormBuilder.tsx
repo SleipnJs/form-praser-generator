@@ -7,8 +7,6 @@ function FormBuilder(props: any) {
   const [formContent, setFormContent] = useState(null);
   const [formData, setFormData] = useState({});
 
-  console.log(props.formContent);
-
   useEffect(() => {
     if (props.formContent != null) {
       setFormContent(props.formContent);

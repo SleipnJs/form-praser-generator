@@ -26,6 +26,7 @@ const MainPage = () => {
   return (
     <div className="App">
       <img src={vectorImg} alt="vector" className="shape-main" />
+      <img src={circleShapeImg} alt="vector" className="shape-circle" />
       <div className="container">
         <Header />
         <Hero />
