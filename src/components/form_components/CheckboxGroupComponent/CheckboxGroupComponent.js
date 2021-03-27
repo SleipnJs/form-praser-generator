@@ -5,7 +5,7 @@ import {useState} from "react";
 
 const CheckboxGroupComponent = (props) => {
 
-  const [componentProps, setComponentProps] = useState(props.component.settings != null ? props.component.settings :{
+  const componentProps = props.component.settings != null ? props.component.settings :{
     "json_name": null,
     "title": null,
     "description": null,
@@ -13,7 +13,7 @@ const CheckboxGroupComponent = (props) => {
     "required": false,
     "hasOptionOther": false,
     "options": [],
-  })
+  }
 
   return (
     <div className={'checkbox-group'}>

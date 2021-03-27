@@ -29,6 +29,7 @@ const FormContent = (props:any) => {
         }
         // @ts-ignore
         _layout[rowIndex].push(component);
+        console.log(_layout)
       })
     })
     setLayout(_layout)
