@@ -5,34 +5,37 @@ import './Survey.scss';
 import axios from 'axios';
 
 import FormBuilder from '../../components/FormClient/FormBuilder';
+import FormResponseDataService from '../../services/formResponse.service'
+import FormDataService from '../../services/form.service'
 
 const Survey = props => {
   const [surveyData, updateData] = useState({
     "formContent": undefined
   });
 
-  console.log(props.match.params.id);
+  const formId = props.match.params.id;
 
   useEffect(() => {
-    axios.get('http://192.168.0.100:8080/data/forms?id=1&stage=1').then(response => {
+    FormDataService.getForm(1,1).then(response => {
       let data = response.data;
       data.formContent = JSON.parse(data.formContent)
       updateData(data)
     });
   }, []);
 
-  const test = () => {
-    console.log(surveyData);
-    const { formContent } = surveyData;
-    // console.log(surveyData.formContent);
-    console.log({ formContent });
-  };
+  const onSave = (data:any) => {
+    console.log(data)
+    FormResponseDataService.send(formId, data).then(r => alert())
+  }
+
   if (surveyData.formContent !== undefined)
     return (
       <div>
-        <button onClick={test}>test</button>
         {/* @ts-ignore */}
-        <FormBuilder formContent={surveyData.formContent} />
+        <FormBuilder
+            onSave={onSave}
+            formContent={surveyData.formContent}
+        />
       </div>
     );
   else return <p>CO</p>;

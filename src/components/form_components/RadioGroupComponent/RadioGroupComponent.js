@@ -14,6 +14,11 @@ const RadioGroupComponent = (props) => {
     "options": [],
   }
 
+  const handleChange = (e) => {
+    let value = e.target.value;
+    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
+  }
+
   return (
     <div className={'radio-group'}>
       <div className={'radio-group--component'}>
@@ -21,7 +26,7 @@ const RadioGroupComponent = (props) => {
         <RadioGroup>
           {componentProps.options != null ? componentProps.options.map((option, index) =>
             <div key={index}>
-              <FormControlLabel value={option.label} control={<Radio/>} label={option.label}/>
+              <FormControlLabel value={option.label} onChange={handleChange} control={<Radio/>} label={option.label}/>
             </div>
           ): "Wybierz pola"}
         </RadioGroup>
