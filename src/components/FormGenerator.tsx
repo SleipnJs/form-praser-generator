@@ -3,6 +3,7 @@ import {Button, TextField} from "@material-ui/core";
 import './form-content.css'
 import GeneratorComponent from "./GeneratorComponent";
 import FormDataService from "../services/form.service";
+import React from "react";
 
 export interface ComponentDto {
     key: string;
@@ -30,10 +31,6 @@ const FormGenerator = () => {
     const [formTitle, setFormTitle] = useState("undefined");
     const [formDescription, setFormDescription] = useState("undefined");
 
-    useEffect(() => {
-
-    }, [layout])
-
     const createNewComponent = () => {
         let _rowIndex = layout.length;
         let initialComponent: ComponentDto = {
@@ -53,7 +50,6 @@ const FormGenerator = () => {
         let _layout = [...layout];
         _layout[component.rowIndex][component.colIndex] = component;
         setLayout(_layout);
-        console.log(_layout)
     }
 
     const addColumn = (_rowIndex: number) => {
@@ -73,6 +69,7 @@ const FormGenerator = () => {
     }
 
     const saveForm = () => {
+        alert()
         let _result = {};
         // @ts-ignore
         _result['components'] = {};
@@ -111,7 +108,7 @@ const FormGenerator = () => {
         <div className={'container'}>
             <div>
                 <TextField label={"Tytuł formularza"} onChange={onFormTitleChanged}/><br/>
-                <TextField label={"Opis formularza"} onChange={onFormDescriptionChanged}/>
+                <TextField label={"Opis formularza"} rows={4} multiline onChange={onFormDescriptionChanged}/>
             </div>
             {layout.map((row, _rowIndex) => {
                 return (
