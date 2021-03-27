@@ -57,4 +57,49 @@
       }
     }
   }
+
+  &__add {
+    border: 1px solid #212227;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    padding: 1rem;
+    color: #eb5757;
+    font-size: 1.6rem;
+    font-weight: 600;
+    height: 4rem;
+    width: 4rem;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+
+    &:hover {
+      background: #212227;
+      color: #fff;
+    }
+  }
+}
+
+.blob,
+.leaf {
+  position: absolute;
+}
+
+.blob {
+  top: -12rem;
+  right: -12rem;
+  width: 35rem;
+  height: 35rem;
+}
+
+.leaf {
+  transform: rotate(45deg);
+  z-index: -2;
+  bottom: 0;
+  left: -20rem;
+  width: 75rem;
 }
