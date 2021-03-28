@@ -26,7 +26,12 @@ const SingleSelectComponent = (props) => {
   const handleChange = (event) => {
     let value = event.target.value;
     selectedOption(value);
-    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
+    value = value.replace(/\s/g, '_');
+    value = value.replace(':', '');
+    value = value.replace(',', '');
+    value = value.replace('=', '_');
+    value = value.replace('/', '_');
+    props.onDataChanged(props.component.key, value);
   };
 
   return (

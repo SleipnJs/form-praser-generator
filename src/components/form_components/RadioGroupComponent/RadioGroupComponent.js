@@ -19,7 +19,12 @@ const RadioGroupComponent = props => {
 
   const handleChange = (e) => {
     let value = e.target.value;
-    props.onDataChanged(props.component.key, value.replace(/\s/g, '_'));
+    value = value.replace(/\s/g, '_');
+    value = value.replace(':', '');
+    value = value.replace(',', '');
+    value = value.replace('=', '_');
+    value = value.replace('/', '_');
+    props.onDataChanged(props.component.key, value);
   }
 
   return (
