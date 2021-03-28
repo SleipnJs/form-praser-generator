@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import './Survey.scss';
 
 import FormBuilder from '../../components/FormClient/FormBuilder';
@@ -25,7 +24,7 @@ const Survey = props => {
   }, []);
 
   const onSave = (data: any) => {
-    console.log(data);
+    window.location.replace('/sended');
     FormResponseDataService.send(formId, data).then(r => alert());
   };
 

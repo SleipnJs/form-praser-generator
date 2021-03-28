@@ -9,19 +9,31 @@ import arrow from '../../assets/images/arrow.svg';
 import magnifier from '../../assets/images/magnifier-black.svg';
 
 const Popular = props => {
-  const [popularSurveys, updatepopularSurveys] = useState([]);
+  const [popularSurveys, updatepopularSurveys] = useState({ surveys: [], numberOfSurveys: 3 });
 
   useEffect(() => {
-    FormDataService.getMostLiked(3).then(response => {
+    FormDataService.getMostLiked(popularSurveys.numberOfSurveys).then(response => {
       console.log(response.data);
-      updatepopularSurveys(response.data);
+      updatepopularSurveys({ surveys: response.data, numberOfSurveys: popularSurveys.numberOfSurveys });
     });
   }, []);
 
+  // useEffect(() => {
+  //   FormDataService.getMostLiked(popularSurveys.numberOfSurveys).then(response => {
+  //     console.log(response.data);
+  //     updatepopularSurveys({ surveys: response.data, numberOfSurveys: popularSurveys.numberOfSurveys });
+  //   });
+  // }, [popularSurveys]);
+
+  const moreSurveys = () => {
+    alert('hi');
+    updatepopularSurveys({ surveys: popularSurveys.surveys, numberOfSurveys: popularSurveys.numberOfSurveys + 3 });
+  };
+
   let popular = null;
-  if (popularSurveys) {
+  if (popularSurveys.surveys) {
     // @ts-ignore
-    popular = popularSurveys.map(survey => {
+    popular = popularSurveys.surveys.map(survey => {
       return (
         <SurveyItem
           key={survey['id']}
@@ -45,9 +57,9 @@ const Popular = props => {
         <input placeholder="Wyszukaj..." />
         <img src={magnifier} alt="magnifier" />
       </div>
-      <a className="popular__more" href="#">
+      <p className="popular__more" onClick={moreSurveys}>
         Więcej <img src={arrow} alt="arrow" />
-      </a>
+      </p>
     </section>
   );
 };

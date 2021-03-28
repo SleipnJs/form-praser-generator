@@ -16,6 +16,7 @@ import Footer from '../../components/Footer/Footer';
 
 import vectorImg from '../../assets/images/vector.svg';
 import circleShapeImg from '../../assets/images/circle.svg';
+import blob from '../../assets/images/blob.svg';
 
 const MainPage = () => {
   const [popularPostsState, updatePopular] = useState({ popular: [] });
@@ -38,6 +39,7 @@ const MainPage = () => {
         <Petition />
         <Faq />
         <Aside />
+        <img src={blob} alt="vector" className="blob-2" />
       </div>
       <Footer />
     </Fragment>

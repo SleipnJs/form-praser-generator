@@ -1,0 +1,22 @@
+.sended-form {
+  text-align: center;
+  margin-top: 3rem;
+
+  &__btn {
+    display: inline-block;
+    margin-top: 2rem;
+    cursor: pointer;
+    background: #eb5757;
+    border: none;
+
+    color: #fff;
+    padding: 1.5rem 2.7rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    font-size: 1.5rem;
+
+    &:hover {
+      background: #c53030;
+    }
+  }
+}

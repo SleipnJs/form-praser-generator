@@ -4,8 +4,9 @@ import { Router, Switch, Route } from 'react-router-dom';
 import { history } from './helpers/history';
 import MainPage from './pages/MainPage/MainPage';
 import Survey from './pages/Survey/Survey';
-import React, {Fragment} from 'react';
-import SurveyDetails from "./pages/SurveyDetails/SurveyDetails";
+import React, { Fragment } from 'react';
+import SurveyDetails from './pages/SurveyDetails/SurveyDetails';
+import SendSurvey from './pages/SendSurvey/SendSurvey';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/createForm" component={FormGenerator} />
           <Route exact path="/" component={MainPage} />
           <Route exact path="/survey/:id" component={Survey} />
+          <Route exact path="/sended" component={SendSurvey} />
           <Route exact path="/surveyDetails/:id" component={SurveyDetails} />
         </Switch>
       </Fragment>
