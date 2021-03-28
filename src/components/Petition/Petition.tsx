@@ -24,10 +24,9 @@ const Petition = () => {
         <div className="petition__item">
           <p className="petition__number">02</p>
           <div>
-            <h3 className="petition__heading">Protest przeciwko zbieraniu i składowaniu odpadów w Mieszewku</h3>
+            <h3 className="petition__heading">Petycja o wydłużenie długiej przerwy w Szkole Podstawowej nr 9 w Tarnowie</h3>
             <p className="petition__desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien, eget ornare elementum ut nullam quis iaculis cursus.
-              Iaculis orci vel eget risus tortor. Fermentum suscipit egestas vestibulum, sem elit pellentesque ipsum bibendum porttitor.{' '}
+              Uczniowie klasy 3a proszą o wydłużenie 15 minutowej przerwy. Pomóż im podpisując petycję{' '}
             </p>
             <a className="petition__more" href="#">
               Podpisz <img src={arrow} alt="arrow" />
@@ -37,10 +36,9 @@ const Petition = () => {
         <div className="petition__item">
           <p className="petition__number">03</p>
           <div>
-            <h3 className="petition__heading">Protest przeciwko zbieraniu i składowaniu odpadów w Mieszewku</h3>
+            <h3 className="petition__heading">Petycja o sfinansowanie Centrum Aktywnego Seniora w Ciemieszkowie</h3>
             <p className="petition__desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien, eget ornare elementum ut nullam quis iaculis cursus.
-              Iaculis orci vel eget risus tortor. Fermentum suscipit egestas vestibulum, sem elit pellentesque ipsum bibendum porttitor.{' '}
+              Mieszkańcy Ciemieszkowa proszą o pomoc w zbieraniu podpisów na sfinansowanie Centrum Aktywnego Seniora z budżetu gminynpm run bui.{' '}
             </p>
             <a className="petition__more" href="#">
               Podpisz <img src={arrow} alt="arrow" />
@@ -49,7 +47,7 @@ const Petition = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Petition;
+export default Petition
