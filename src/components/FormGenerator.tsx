@@ -34,6 +34,7 @@ const FormGenerator = () => {
   const [layout, setLayout] = useState([[zeroComponent]]);
   const [formTitle, setFormTitle] = useState('undefined');
   const [formDescription, setFormDescription] = useState('undefined');
+  const [formImageLink, setFormImageLink] = useState('undefined');
 
   const createNewComponent = () => {
     let _rowIndex = layout.length;
@@ -72,6 +73,11 @@ const FormGenerator = () => {
     setFormDescription(value);
   };
 
+  const onFormHrefChanged = (e: any) => {
+    let value = e.target.value;
+    setFormImageLink(value);
+  };
+
   const saveForm = () => {
     let _result = {};
     // @ts-ignore
@@ -104,7 +110,10 @@ const FormGenerator = () => {
     _resultFull['form_content'] = _result;
 
     console.log(_resultFull);
-    FormDataService.create(_resultFull).then(r => alert());
+    FormDataService.create({
+      "responses": _resultFull,
+      "imageHref": formImageLink
+    }).then(r => window.location.replace('/sended'));
   };
 
   return (
@@ -116,6 +125,7 @@ const FormGenerator = () => {
       </h2>
       <div className="generator__settings">
         <TextField label={'Tytuł formularza'} onChange={onFormTitleChanged} />
+        <TextField label={'Link do grafiki'} onChange={onFormHrefChanged} />
         <TextField label={'Opis formularza'} onChange={onFormDescriptionChanged} multiline rows={4} />
       </div>
       {layout.map((row, _rowIndex) => {
