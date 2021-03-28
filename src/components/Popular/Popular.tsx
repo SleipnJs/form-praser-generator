@@ -5,6 +5,8 @@ import './Popular.scss';
 import SurveyItem from '../SurveyItem/SurveyItem';
 import FormDataService from '../../services/form.service';
 
+import arrow from '../../assets/images/arrow.svg';
+
 const Popular = props => {
   const [popularSurveys, updatepopularSurveys] = useState([]);
 
@@ -26,6 +28,8 @@ const Popular = props => {
           comments={survey.responseCounter}
           title={survey.title}
           description={survey.description}
+          author={survey.author}
+          date={survey.createdAt}
         />
       );
     });
@@ -34,6 +38,9 @@ const Popular = props => {
     <section className="popular" id="popular">
       <h2 className="subheading">Najpopularniejsze tematy</h2>
       <div className="popular__container">{popular}</div>
+      <a className="popular__more" href="#">
+        Więcej <img src={arrow} alt="arrow" />
+      </a>
     </section>
   );
 };
