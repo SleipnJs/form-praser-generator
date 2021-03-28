@@ -2,9 +2,12 @@ import React from 'react';
 
 import './Footer.scss';
 
+import shape from '../../assets/images/footer-shape.svg';
+
 const Footer = () => {
   return (
     <footer className="footer">
+      <img src={shape} />
       <div className="container">
         <div className="footer__authors">
           <a href="https://github.com/dpajak99" target="_blank" rel="noopener noreferrer" className="footer__author">

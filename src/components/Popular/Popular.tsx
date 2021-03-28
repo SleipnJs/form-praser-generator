@@ -18,18 +18,6 @@ const Popular = props => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   FormDataService.getMostLiked(popularSurveys.numberOfSurveys).then(response => {
-  //     console.log(response.data);
-  //     updatepopularSurveys({ surveys: response.data, numberOfSurveys: popularSurveys.numberOfSurveys });
-  //   });
-  // }, [popularSurveys]);
-
-  const moreSurveys = () => {
-    alert('hi');
-    updatepopularSurveys({ surveys: popularSurveys.surveys, numberOfSurveys: popularSurveys.numberOfSurveys + 3 });
-  };
-
   let popular = null;
   if (popularSurveys.surveys) {
     // @ts-ignore
