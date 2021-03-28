@@ -1,0 +1,64 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  &__header {
+    p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    background: #f5f5f5;
+    border-radius: 0.5rem;
+    padding: 3rem 5rem;
+
+    &:first-child {
+      border-top: 1rem solid #eb5757;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    text-align: left;
+  }
+
+  .test span {
+    font-size: 1.4rem;
+  }
+
+  &__button {
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    padding: 1.5rem 10rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    font-size: 1.5rem;
+    background: #eb5757;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background: #c53030;
+    }
+  }
+}
+
+.u-mtop {
+  margin-top: 6rem;
+}
