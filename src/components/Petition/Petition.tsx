@@ -14,8 +14,7 @@ const Petition = () => {
           <div>
             <h3 className="petition__heading">Protest przeciwko zbieraniu i składowaniu odpadów w Mieszewku</h3>
             <p className="petition__desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien, eget ornare elementum ut nullam quis iaculis cursus.
-              Iaculis orci vel eget risus tortor. Fermentum suscipit egestas vestibulum, sem elit pellentesque ipsum bibendum porttitor.{' '}
+              Podpisz petycję przeciwko zbieraniu i składowaniu odpadów w Mieszewku.{' '}
             </p>
             <a className="petition__more" href="#">
               Podpisz <img src={arrow} alt="arrow" />
