@@ -7,6 +7,7 @@ import Survey from './pages/Survey/Survey';
 import React, { Fragment } from 'react';
 import SurveyDetails from './pages/SurveyDetails/SurveyDetails';
 import SendSurvey from './pages/SendSurvey/SendSurvey';
+import AllSurveys from "./components/AllSurveys/AllSurveys";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/survey/:id" component={Survey} />
           <Route exact path="/sended" component={SendSurvey} />
+          <Route exact path="/allSurveys" component={AllSurveys} />
           <Route exact path="/surveyDetails/:id" component={SurveyDetails} />
         </Switch>
       </Fragment>

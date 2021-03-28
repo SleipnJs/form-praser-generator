@@ -7,6 +7,7 @@ import FormDataService from '../../services/form.service';
 
 import arrow from '../../assets/images/arrow.svg';
 import magnifier from '../../assets/images/magnifier-black.svg';
+import { Link } from 'react-router-dom';
 
 const Popular = props => {
   const [popularSurveys, updatepopularSurveys] = useState({ surveys: [], numberOfSurveys: 3 });
@@ -46,7 +47,7 @@ const Popular = props => {
         <img src={magnifier} alt="magnifier" />
       </div>
       <p className="popular__more">
-        Więcej <img src={arrow} alt="arrow" />
+          <Link to={"/allSurveys"} style={{color: 'black'}}> Więcej <img src={arrow} alt="arrow" /></Link>
       </p>
     </section>
   );

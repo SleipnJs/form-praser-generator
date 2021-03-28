@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Header.scss';
-
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 
 const Header = () => {
@@ -22,7 +22,7 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a className="header__link">stwórz ankiete</a>
+            <Link to={"/createForm"} className="header__link">stwórz ankiete</Link>
           </li>
           <li>
             <a className="header__link">zaloguj się</a>
