@@ -113,7 +113,7 @@ const FormGenerator = () => {
     FormDataService.create({
       "responses": _resultFull,
       "imageHref": formImageLink
-    }).then(r => alert());
+    }).then(r => window.location.replace('/sended'));
   };
 
   return (

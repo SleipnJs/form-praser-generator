@@ -57,7 +57,7 @@ const SurveyDetails = props => {
         <img src={blob} className="blob" />
         <img src={leaf} className="leaf" />
         {/* @ts-ignore */}
-        <h1 className="survey-header">{formContent?.form?.title}siema</h1>
+        <h1 className="survey-header">{formContent?.form?.title}</h1>
         {/* @ts-ignore */}
         <h1 className="survey-desc">{formContent?.form?.description}</h1>
         <SurveyContent
