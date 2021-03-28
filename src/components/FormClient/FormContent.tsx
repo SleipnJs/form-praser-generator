@@ -37,7 +37,7 @@ const FormContent = (props: any) => {
   return (
     <div className="container">
       <div className="form u-mtop">
-        {layout.map((row: any) => {
+        {layout.map((row: any, i) => {
           return (
             <div className={'form__row'}>
               {row.map((component: ComponentDto) => {
@@ -46,9 +46,12 @@ const FormContent = (props: any) => {
                     <div className="form__header">
                       {/*@ts-ignore*/}
                       <h2 className="form__heading">{component.settings.title?.replaceAll('_', ' ')}</h2>
-                      {/*@ts-ignore*/}
-                      <p>{component.settings.description?.replaceAll('_', ' ')}</p>
+                      <p>
+                        Pytanie {i + 1} z {layout.length}
+                      </p>
                     </div>
+                    {/*@ts-ignore*/}
+                    <p className="form__desc">{component.settings.description?.replaceAll('_', ' ')}</p>
                     {getComponent(props.onDataChanged, component)}
                   </div>
                 );

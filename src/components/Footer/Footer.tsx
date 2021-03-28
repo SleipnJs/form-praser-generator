@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer__authors">
           <a href="https://github.com/dpajak99" target="_blank" rel="noopener noreferrer" className="footer__author">
-            Domninik Pająk
+            Dominik Pająk
           </a>
           <a href="https://github.com/Isaayy" target="_blank" rel="noopener noreferrer" className="footer__author">
             Jakub Serwin
