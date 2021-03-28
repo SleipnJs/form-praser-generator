@@ -45,7 +45,7 @@ const Popular = props => {
         <input placeholder="Wyszukaj..." />
         <img src={magnifier} alt="magnifier" />
       </div>
-      <p className="popular__more" onClick={moreSurveys}>
+      <p className="popular__more">
         Więcej <img src={arrow} alt="arrow" />
       </p>
     </section>
