@@ -26,4 +26,31 @@
       height: 2rem;
     }
   }
+
+  &__search {
+    padding: 2rem 2.5rem;
+    width: 60rem;
+    height: 7rem;
+    border: 1px solid #212227;
+    border-radius: 0.7rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      background: none;
+      outline: none;
+      border: none;
+      width: 70%;
+      &:placeholder {
+        font-size: 1.6rem;
+        color: rgb(117, 117, 117);
+      }
+    }
+  }
 }
