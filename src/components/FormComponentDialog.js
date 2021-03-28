@@ -21,28 +21,28 @@ const FormComponentDialog = props => {
           <ListItemAvatar>
             <Avatar>+</Avatar>
           </ListItemAvatar>
-          <ListItemText primary="text_field" />
+          <ListItemText primary="Pytanie otwarte" />
         </ListItem>
 
         <ListItem autoFocus button onClick={() => handleListItemClick('radio_group')}>
           <ListItemAvatar>
             <Avatar>+</Avatar>
           </ListItemAvatar>
-          <ListItemText primary="radio_group" />
+          <ListItemText primary="Pojedyńczy wybór" />
         </ListItem>
 
         <ListItem autoFocus button onClick={() => handleListItemClick('checkbox_group')}>
           <ListItemAvatar>
             <Avatar>+</Avatar>
           </ListItemAvatar>
-          <ListItemText primary="checkbox_group" />
+          <ListItemText primary="Wielokrotny wybór" />
         </ListItem>
 
         <ListItem autoFocus button onClick={() => handleListItemClick('single_select')}>
           <ListItemAvatar>
             <Avatar>+</Avatar>
           </ListItemAvatar>
-          <ListItemText primary="single_select" />
+          <ListItemText primary="Zwijana lista" />
         </ListItem>
       </List>
     </Dialog>

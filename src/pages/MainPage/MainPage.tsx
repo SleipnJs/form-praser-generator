@@ -39,7 +39,6 @@ const MainPage = () => {
         <Petition />
         <Faq />
         <Aside />
-        <img src={blob} alt="vector" className="blob-2" />
       </div>
       <Footer />
     </Fragment>
