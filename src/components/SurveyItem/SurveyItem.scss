@@ -40,16 +40,26 @@
     font-size: 1.6rem;
     font-weight: 300;
     color: rgb(49, 49, 49);
-    margin-bottom: 3rem;
 
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
 
+  &__author {
+    span {
+      font-weight: 700;
+      margin-right: 1rem;
+    }
+    padding: 0 3.5rem;
+    margin-top: 1rem;
+  }
+
   &__buttons {
+    margin-top: 3rem;
+
     padding: 0 3.5rem;
     display: flex;
     gap: 2rem;

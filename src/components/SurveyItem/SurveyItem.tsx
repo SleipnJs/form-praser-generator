@@ -15,6 +15,10 @@ const SurveyItem = props => {
       <p className="item__category">{props.category}</p>
       <h4 className="item__heading">{props.title}</h4>
       <p className="item__desc">{props.description}</p>
+      <p className="item__author">
+        <span>{`By ${props.author}`}</span> {props.date}
+      </p>
+
       <div className="item__buttons">
         <Link to={`/survey/${props?.id}`} className="item__btn item__btn--red">
           Wypełnij ankiete

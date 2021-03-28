@@ -7,4 +7,23 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5rem;
   }
+
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    color: #000;
+    cursor: pointer;
+
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
 }
