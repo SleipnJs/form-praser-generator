@@ -1,60 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 import './Popular.scss';
 
-import banner from '../../assets/images/heading_1.png';
-import commentsImg from '../../assets/images/comments.svg';
+import SurveyItem from '../SurveyItem/SurveyItem';
+import FormDataService from '../../services/form.service';
 
 const Popular = props => {
+  const [popularSurveys, updatepopularSurveys] = useState([]);
+
+  useEffect(() => {
+    FormDataService.getMostLiked(3).then(response => {
+      console.log(response.data);
+      updatepopularSurveys(response.data);
+    });
+  }, []);
+
+  let popular = null;
+  if (popularSurveys) {
+    popular = popularSurveys.map(survey => {
+      return (
+        <SurveyItem
+          key={survey.id}
+          img={survey.imageLink}
+          category={survey.category}
+          comments={survey.responseCounter}
+          title={survey.title}
+          description={survey.description}
+        />
+      );
+    });
+  }
   return (
     <section className="popular" id="popular">
       <h2 className="subheading">Najpopularniejsze tematy</h2>
-      <div className="popular__container">
-        <div className="popular__item">
-          <img src={banner} alt="banner" className="popular__banner" />
-          <div className="popular__comments">
-            <img src={commentsImg} alt="comment icon" className="" />
-            <p>1 231</p>
-          </div>
-          <p className="popular__category">{props?.posts?.form?.category}</p>
-          <h4 className="popular__heading">{props?.posts?.form?.title}</h4>
-          <p className="popular__desc">{props?.posts?.form?.description}</p>
-          <div className="popular__buttons">
-            <Link to={`/survey/${props?.posts?.id}`} className="popular__btn popular__btn--red">
-              Wypełnij ankiete
-            </Link>
-            <button className="popular__btn popular__btn--black">Zobacz ankiete</button>
-          </div>
-        </div>
-
-        <div className="popular__item">
-          <img src={banner} alt="banner" />
-          <p className="popular__category">Covid</p>
-          <h4 className="popular__heading">Rekordowe zakażenia w polsce</h4>
-          <p className="popular__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat, nisi faucibus lectus ipsum. Amet augue amet turpis vel libero nulla.
-            Cras nunc, arcu mi scelerisque dolor.
-          </p>
-          <div className="popular__buttons">
-            <button className="popular__btn popular__btn--red">Wypełnij ankiete</button>
-            <button className="popular__btn popular__btn--black">Zobacz ankiete</button>
-          </div>
-        </div>
-        <div className="popular__item">
-          <img src={banner} alt="banner" />
-          <p className="popular__category">Covid</p>
-          <h4 className="popular__heading">Rekordowe zakażenia w polsce</h4>
-          <p className="popular__desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat, nisi faucibus lectus ipsum. Amet augue amet turpis vel libero nulla.
-            Cras nunc, arcu mi scelerisque dolor.
-          </p>
-          <div className="popular__buttons">
-            <button className="popular__btn popular__btn--red">Wypełnij ankiete</button>
-            <button className="popular__btn popular__btn--black">Zobacz ankiete</button>
-          </div>
-        </div>
-      </div>
+      <div className="popular__container">{popular}</div>
     </section>
   );
 };
