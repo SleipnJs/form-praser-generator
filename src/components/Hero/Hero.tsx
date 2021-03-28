@@ -9,9 +9,10 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero__content">
-        <h1 className="hero__heading">Już dziś sprawdź otaczającą Cię teraźniejszość </h1>
+        <h1 className="hero__heading">Ty również masz głos w kształtowaniu teraźniejszości</h1>
         <h3 className="hero__subheading">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacinia pulvinar porttitor vitae sed. Magna rutrum enim ipsum massa.
+          Wyraź swoje zdanie na tematy społeczne, lub twórz ankiety. Bezpłatnie.<br />
+          Razem naprawdę możemy zmienić świat
         </h3>
         <div className="hero__buttons">
           <Link to="/createForm" className="hero__btn hero__btn--red">
