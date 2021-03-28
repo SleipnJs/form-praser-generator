@@ -9,6 +9,7 @@ import Header from '../../components/Header/Header';
 import Hero from '../../components/Hero/Hero';
 import WhyUs from '../../components/WhyUs/WhyUs';
 import Popular from '../../components/Popular/Popular';
+import Petition from '../../components/Petition/Petition';
 import Aside from '../../components/aside/Aside';
 import Footer from '../../components/Footer/Footer';
 
@@ -33,6 +34,7 @@ const MainPage = () => {
         <Hero />
         <WhyUs />
         <Popular posts={popularPostsState.popular} />
+        <Petition />
         <Aside />
       </div>
       <Footer />
