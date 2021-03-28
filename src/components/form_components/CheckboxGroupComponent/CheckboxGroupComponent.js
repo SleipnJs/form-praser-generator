@@ -29,7 +29,7 @@ const CheckboxGroupComponent = (props) => {
           {componentProps.options != null
             ?  componentProps.options.map((option, index) =>
             <div key={index}>
-              <FormControlLabel value={option.label} control={<Checkbox name={componentProps.json_name}/>} label={option.label}/>
+              <FormControlLabel value={option.label} control={<Checkbox name={componentProps.json_name}/>} onChange={handleChange} label={option.label?.replaceAll('_', ' ')}/>
             </div>
           ):  'Wybierz pola'}
       </div>

@@ -34,7 +34,7 @@ const RadioGroupComponent = props => {
           {componentProps.options != null
             ? componentProps.options.map((option, index) => (
                 <div key={index}>
-                  <FormControlLabel className="test" value={option.label} control={<Radio />} label={option.label} />
+                  <FormControlLabel className="test" value={option.label} control={<Radio />} onChange={handleChange} label={option.label?.replaceAll('_', ' ')} />
                 </div>
               ))
             : 'Wybierz pola'}

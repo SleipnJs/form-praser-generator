@@ -17,18 +17,20 @@ const Popular = props => {
 
   let popular = null;
   if (popularSurveys) {
+    // @ts-ignore
     popular = popularSurveys.map(survey => {
       return (
         <SurveyItem
-          key={survey.id}
-          img={survey.imageLink}
-          category={survey.category}
-          comments={survey.responseCounter}
-          title={survey.title}
-          description={survey.description}
+          key={survey["id"]}
+          id={survey["id"]}
+          img={survey["imageLink"]}
+          category={survey["category"]}
+          comments={survey["responseCounter"]}
+          title={survey["title"]}
+          description={survey["description"]}
         />
-      );
-    });
+      )
+    })
   }
   return (
     <section className="popular" id="popular">

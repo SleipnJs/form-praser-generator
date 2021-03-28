@@ -16,7 +16,7 @@ const SurveyItem = props => {
       <h4 className="item__heading">{props.title}</h4>
       <p className="item__desc">{props.description}</p>
       <div className="item__buttons">
-        <Link to={`/survey/${props?.posts?.id}`} className="item__btn item__btn--red">
+        <Link to={`/survey/${props?.id}`} className="item__btn item__btn--red">
           Wypełnij ankiete
         </Link>
         <button className="item__btn item__btn--black">Zobacz ankiete</button>

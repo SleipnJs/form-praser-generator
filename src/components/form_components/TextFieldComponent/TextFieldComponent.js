@@ -28,7 +28,7 @@ const TextFieldComponent = props => {
           onChange={handleChange}
           defaultValue={_defaultValue}
           className={'text-field--component--field typo'}
-          label={componentProps.label}
+          label={componentProps.label?.replaceAll('_', ' ')}
         />
       </div>
     </div>

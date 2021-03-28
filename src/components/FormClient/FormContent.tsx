@@ -45,9 +45,9 @@ const FormContent = (props: any) => {
                   <div className={'form__content'}>
                     <div className="form__header">
                       {/*@ts-ignore*/}
-                      <h2 className="form__heading">{component.settings.title}</h2>
+                      <h2 className="form__heading">{component.settings.title?.replaceAll('_', ' ')}</h2>
                       {/*@ts-ignore*/}
-                      <p>{component.settings.description}</p>
+                      <p>{component.settings.description?.replaceAll('_', ' ')}</p>
                     </div>
                     {getComponent(props.onDataChanged, component)}
                   </div>

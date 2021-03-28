@@ -14,9 +14,11 @@ const Survey = props => {
   });
 
   const formId = props.match.params.id;
+  
+
 
   useEffect(() => {
-    FormDataService.getForm(1,1).then(response => {
+    FormDataService.getForm(formId,1).then(response => {
       let data = response.data;
       data.formContent = JSON.parse(data.formContent);
       updateData(data);
