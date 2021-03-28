@@ -23,18 +23,18 @@ const Popular = props => {
     popular = popularSurveys.map(survey => {
       return (
         <SurveyItem
-          key={survey["id"]}
-          id={survey["id"]}
-          img={survey["imageLink"]}
-          category={survey["category"]}
-          comments={survey["responseCounter"]}
-          title={survey["title"]}
-          description={survey["description"]}
-          author={survey["author"]}
-          date={survey["createdAt"]}
+          key={survey['id']}
+          id={survey['id']}
+          img={survey['imageLink']}
+          category={survey['category']}
+          comments={survey['responseCounter']}
+          title={survey['title']}
+          description={survey['description']}
+          author={survey['author']}
+          date={survey['createdAt']}
         />
-      )
-    })
+      );
+    });
   }
   return (
     <section className="popular" id="popular">

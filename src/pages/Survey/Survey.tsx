@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import './Survey.scss';
 
-import axios from 'axios';
-
 import FormBuilder from '../../components/FormClient/FormBuilder';
-import FormResponseDataService from '../../services/formResponse.service'
-import FormDataService from '../../services/form.service'
+import FormResponseDataService from '../../services/formResponse.service';
+import FormDataService from '../../services/form.service';
+
+import leaf from '../../assets/images/leaf.svg';
+import blob from '../../assets/images/blob.svg';
 
 const Survey = props => {
   const [surveyData, updateData] = useState({
@@ -14,30 +15,32 @@ const Survey = props => {
   });
 
   const formId = props.match.params.id;
-  
-
 
   useEffect(() => {
-    FormDataService.getForm(formId,1).then(response => {
+    FormDataService.getForm(formId, 1).then(response => {
       let data = response.data;
       data.formContent = JSON.parse(data.formContent);
       updateData(data);
     });
   }, []);
 
-  const onSave = (data:any) => {
-    console.log(data)
-    FormResponseDataService.send(formId, data).then(r => alert())
-  }
+  const onSave = (data: any) => {
+    console.log(data);
+    FormResponseDataService.send(formId, data).then(r => alert());
+  };
 
   if (surveyData.formContent !== undefined) {
+    console.log(surveyData);
     return (
       <div>
+        <img src={blob} className="blob" />
+        <img src={leaf} className="leaf" />
         {/* @ts-ignore */}
-        <FormBuilder
-            onSave={onSave}
-            formContent={surveyData.formContent}
-        />
+        <h1 className="survey-header">{surveyData?.form?.title}</h1>
+        {/* @ts-ignore */}
+        <h1 className="survey-desc">{surveyData?.form?.description}</h1>
+        {/* @ts-ignore */}
+        <FormBuilder onSave={onSave} formContent={surveyData.formContent} />
       </div>
     );
   } else {
