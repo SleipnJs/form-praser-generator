@@ -26,12 +26,10 @@ Serwer do strony Ankieta obywatelska. Projektu Stworzonego na Hackarök 2021
 ## Screenshots
 <img src="/readme/screen1.jpg"
 width="100%" hspace="10" vspace="10">
-
 <img src="/readme/screen2.jpg"
 width="100%" hspace="10" vspace="10">
 
 <img src="/readme/screen3.jpg"
 width="100%" hspace="10" vspace="10">
-
 <img src="/readme/screen4.jpg"
 width="100%" hspace="10" vspace="10">
