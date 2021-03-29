@@ -7,7 +7,7 @@ width="100" hspace="10" vspace="10">
 
 ## Ankieta Obywatelska - Backend
 
-Serwer do strony Ankieta obywatelska. Projektu Stworzonego na Hackarök 2021
+Frontend Ankieta obywatelska. Projektu Stworzonego na Hackarök 2021
 <br />
 <br />
 ## Skład zespołu
