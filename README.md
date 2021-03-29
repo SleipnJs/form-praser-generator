@@ -23,7 +23,7 @@ Serwer do strony Ankieta obywatelska. Projektu Stworzonego na Hackarök 2021
 - React
 - TypeScript
 
-## ScreenSchots
+## Screenshots
 <img src="/readme/screen1.jpg"
 width="100%" hspace="10" vspace="10">
 
