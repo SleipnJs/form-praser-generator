@@ -1,4 +1,4 @@
-# SleipnJS - Hackarök 2021 - Aplikacja Obywatelska
+# SleipnJS - Hackarök 2021 - Ankieta Obywatelska
 <img src="/readme/hackathon-logo5.b20e6cfb.png" align="left"
 width="100" hspace="10" vspace="10">
 <img src="/readme/logo.svg" align="left"
@@ -22,3 +22,16 @@ Serwer do strony Ankieta obywatelska. Projektu Stworzonego na Hackarök 2021
 ## Technology Stack
 - React
 - TypeScript
+
+## ScreenSchots
+<img src="/readme/screen1.jpg"
+width="100%" hspace="10" vspace="10">
+
+<img src="/readme/screen2.jpg"
+width="100%" hspace="10" vspace="10">
+
+<img src="/readme/screen3.jpg"
+width="100%" hspace="10" vspace="10">
+
+<img src="/readme/screen4.jpg"
+width="100%" hspace="10" vspace="10">
