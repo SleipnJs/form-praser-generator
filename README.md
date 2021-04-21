@@ -5,7 +5,7 @@ width="100" hspace="10" vspace="10">
 width="100" hspace="10" vspace="10">
 
 
-## Ankieta Obywatelska - Backend
+## Ankieta Obywatelska - Frontend
 
 Frontend Ankieta obywatelska. Projektu Stworzonego na Hacknarök 2021
 <br />
@@ -28,7 +28,7 @@ Hej! Z tej strony zespół SleipnJs. Temat tegorocznego hackatonu był dosyć sk
 **Zgodność z tematyką konkursu**
 
 
-Prawdziwa teraźniejszość - temat mocno otwarty, ale za to dający szerokie pole do popisu. Z czym nam się kojarzy obecna teraźniejszość? Dyskusje ekologiczne, Protesty, Covid, Nauczanie i praca zdalna, ... To są tematy, które w ostatnim czasie mocno dominują w naszym społeczeństwie. Dlatego też długo wisiały na naszej tablicy zanim ostatecznie wybraliśmy projekt. Ankieta Obywatelska to podsumowanie tych szystkich tematów, dla 
+Prawdziwa teraźniejszość - temat mocno otwarty, ale za to dający szerokie pole do popisu. Z czym nam się kojarzy obecna teraźniejszość? Dyskusje ekologiczne, Protesty, Covid, Nauczanie i praca zdalna, ... To są tematy, które w ostatnim czasie mocno dominują w naszym społeczeństwie. Dlatego też długo wisiały na naszej tablicy zanim ostatecznie wybraliśmy projekt. Ankieta Obywatelska to podsumowanie tych szystkich tematów, dla
 którego nie znaleźliśmy bezpośredniej konkurencji. Jasne, istnieją stronki typu Google Formsy czy podobne,
 ale tam ciężko trafić na coś co naprawdę nas interesuje. Ankieta Obywatelska to generator a jednocześnie zbiór
 ankiet i petycji poruszających różne tematy społeczne. Teraźniejszość? Bo dotyczy tu i teraz, bo troszczy
